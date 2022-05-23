@@ -1,6 +1,7 @@
 'use strict'
 
 const Proyecto = use('App/Models/Proyecto')
+const AuthorizationService = use('App/Services/AuthorizationService')
 
 class ProyectoController {
     async index ({ auth }) {
@@ -24,11 +25,7 @@ class ProyectoController {
         const user = await auth.getUser();
         const { id } = params;
         const proyecto = await Proyecto.find(id);
-        if (proyecto.user_id !== user.id){
-            return response.status(403).json({
-                mensaje: "Error 403: No puedes eliminar el registro porque no eres dueño"
-            })
-        }
+        AuthorizationService.verificarPermiso(proyecto, user);
         await proyecto.delete();
         return proyecto;
     }
