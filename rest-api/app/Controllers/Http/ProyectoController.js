@@ -21,15 +21,6 @@ class ProyectoController {
         return proyecto;
     }
 
-    async destroy({ auth, response, params }) {
-        const user = await auth.getUser();
-        const { id } = params;
-        const proyecto = await Proyecto.find(id);
-        AuthorizationService.verificarPermiso(proyecto, user);
-        await proyecto.delete();
-        return proyecto;
-    }
-
     async update ({ auth, params, request }) {
         const user = await auth.getUser();
         const { id } = params;
@@ -38,6 +29,15 @@ class ProyectoController {
         proyecto.merge(request.only('nombre'));
         await proyecto.save();
         return proyecto
+    }
+
+    async destroy({ auth, response, params }) {
+        const user = await auth.getUser();
+        const { id } = params;
+        const proyecto = await Proyecto.find(id);
+        AuthorizationService.verificarPermiso(proyecto, user);
+        await proyecto.delete();
+        return proyecto;
     }
 }
 
