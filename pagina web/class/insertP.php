@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_POST['nombre'])){
-        $url = "http://127.0.0.1:3333/api/v1/proyectos/";
+        $url = "http://tareasadonis.herokuapp.com/api/v1/proyectos/";
         // Los datos de formulario
         $datos = [
             "nombre" => $_POST['nombre'],

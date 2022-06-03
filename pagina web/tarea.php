@@ -38,7 +38,7 @@
 		</nav>
 		<div class="container text-center mt-3">
 			<?php
-				$url = "http://127.0.0.1:3333/api/v1/proyectos/".$_SESSION['id']."/tareas";
+				$url = "http://tareasadonis.herokuapp.com/api/v1/proyectos/".$_SESSION['id']."/tareas";
 				// Crear opciones de la petición HTTP
 				$opciones = array(
 					"http" => array(

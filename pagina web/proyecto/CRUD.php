@@ -3,7 +3,7 @@
     if(isset($_POST['tipo'])){
         switch ($_POST['tipo']) {
           case 'de': //del
-              $url = "http://127.0.0.1:3333/api/v1/proyectos/".$_POST['id'];
+              $url = "http://tareasadonis.herokuapp.com/api/v1/proyectos/".$_POST['id'];
               // Crear opciones de la petición HTTP
               $opciones = array(
                 "http" => array(

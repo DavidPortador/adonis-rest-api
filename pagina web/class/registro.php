@@ -3,7 +3,7 @@
 	if(isset($_POST['email']) and isset($_POST['password']) and isset($_POST['cpassword'])){
         // Constraseñas iguales
         if($_POST['password'] == $_POST['cpassword']){
-            $url = "http://127.0.0.1:3333/api/v1/usuarios/registro";
+            $url = "http://tareasadonis.herokuapp.com/api/v1/usuarios/registro";
             // Los datos de formulario
             $datos = [
                 "email" => $_POST['email'],
